@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jub jub ｰ̀⩊ｰ́</title>
+
+  <!-- ไอคอนบนแท็บเว็บ -->
+  <link rel="icon" type="image/jpeg" href="pj.png">
+
+  <style>
+   * {
+  box-sizing: border-box;
+}
+    .title-icon {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 3px solid white;
+  animation: pulse 1s infinite alternate;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffb6c8, #ffc5d7, #e9b2c2);
+      display: grid;
+      place-items: center;
+      color: white;
+    }
+
+    .card {
+      position: relative;
+      z-index: 5;
+      width: min(90%, 520px);
+      padding: 45px 28px;
+      text-align: center;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 45px rgba(100, 0, 40, 0.25);
+    }
+
+    h1 {
+  margin: 0 0 25px;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 200;
+  text-shadow: 0 3px 8px rgba(120, 0, 50, 0.25);
+    }
+
+    .title-icon {
+      width: 34px;
+      height: 34px;
+      object-fit: cover;
+      border-radius: 50%;
+      vertical-align: middle;
+      border: 2px solid white;
+      animation: pulse 1s infinite alternate;
+    }
+
+    .buttons {
+      height: 80px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+    }
+
+    button {
+      border: 0;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 18px rgba(90, 0, 35, 0.25);
+    }
+    .yes-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  vertical-align: middle;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  animation: pulse 1s infinite alternate;
+}
+    #yesBtn {
+      color: #930436;
+      background: white;
+    }
+
+    #noBtn {
+      color: white;
+      background: #620123;
+      position: relative;
+    }
+
+    #success {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: bold;
+    }
+
+    /* รูปของคุณที่ลอยขึ้น */
+    .floating-photo {
+  position: absolute;
+  bottom: -120px;
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  opacity: 0.9;
+  animation: floatPhoto linear infinite;
+  pointer-events: none;
+    }
+
+    @keyframes floatPhoto {
+      from {
+        transform: translateY(0) rotate(-10deg);
+      }
+
+      to {
+        transform: translateY(-125vh) rotate(15deg);
+      }
+    }
+
+    @keyframes pulse {
+      to {
+        transform: scale(1.15);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- รูปตัวเองลอย -->
+  <img class="floating-photo" src="pj.png"
+       style="left: 5%; animation-duration: 10s; animation-delay: 0s;" alt="">
+
+  <img class="floating-photo" src="pj.png"
+       style="left: 18%; animation-duration: 13s; animation-delay: 2s;" alt="">
+
+  <img class="floating-photo" src="pj.png"
+       style="left: 38%; animation-duration: 9s; animation-delay: 1s;" alt="">
+
+  <img class="floating-photo" src="pj.png"
+       style="left: 63%; animation-duration: 12s; animation-delay: 3s;" alt="">
+
+  <img class="floating-photo" src="pj.png"
+       style="left: 82%; animation-duration: 11s; animation-delay: 4s;" alt="">
+
+  <img class="floating-photo" src="pj.png"
+       style="left: 94%; animation-duration: 14s; animation-delay: 1s;" alt="">
+
+    <main class="card">
+        <h1>jub jub💋</h1>
+      
+    <div class="buttons">
+      <button id="yesBtn">💋</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <div id="success">
+      I knew you would say yes! hehe ❤️<br>
+      I can’t wait to see you! 💖
+    </div>
+  </main>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const success = document.getElementById("success");
+
+    function moveNoButton() {
+      const padding = 20;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      noBtn.style.position = "fixed";
+      noBtn.style.left = Math.max(padding, Math.random() * maxX) + "px";
+      noBtn.style.top = Math.max(padding, Math.random() * maxY) + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+    noBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      moveNoButton();
+    });
+
+    yesBtn.addEventListener("click", () => {
+    noBtn.style.display = "none";
+    yesBtn.style.display = "none";
+
+  document.querySelector("h1").innerHTML =
+    'yayyy! <img src="kissty.png" class="yes-photo" alt="jub jub">';
+
+  success.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
